@@ -10,4 +10,4 @@ VERSION or DATE:0:00001
 HOW TO START THIS PROJECT:sync
 AUTHORS:Kristof,Thomas,Edison,Patrick
 USER INSTRUCTIONS:
-Keep calm and wait further instructions 
+Keep calm and wait for further instructions 
