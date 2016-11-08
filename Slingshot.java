@@ -11,8 +11,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Slingshot extends Actor
 {
     // the images of the slingshot!!
-    GreenfootImage sshot1 = new GreenfootImage("Sshotwstrap.gif");
-    GreenfootImage sshot2 = new GreenfootImage("Sshot.gif");
+    //GreenfootImage sshot1 = new GreenfootImage("Sshotwstrap.gif");
+    //GreenfootImage sshot2 = new GreenfootImage("Sshot.gif");
+    GreenfootImage sshot1 = new GreenfootImage("slingshot.png");
+    GreenfootImage sshot2 = new GreenfootImage("slingshot.png");
     Pellet pellet; // the pellet that gets shot
     MouseInfo m; // need the mouse info....
     Strap s1, s2; // the straps of the slingshot
@@ -202,8 +204,8 @@ public class Slingshot extends Actor
         s1 = new Strap();
         s2 = new Strap();
         t = (TestWorld) getWorld();
-        getWorld().addObject(s1,getX() +7,getY()-17); // the order in which these are added matters
-        getWorld().addObject(s2,getX() -8,getY()-17); // when it comes to which gets drawn first
+        getWorld().addObject(s1,getX() +30,getY()-85); // the order in which these are added matters
+        getWorld().addObject(s2,getX() -20,getY()-85); // when it comes to which gets drawn first
         setImage(sshot1);
         getWorld().setPaintOrder(Pellet.class,Slingshot.class); // draw the pellet on top of the sling shot
         initialized = true;

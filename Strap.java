@@ -45,7 +45,7 @@ public class Strap extends Actor
             //xpts[4] = w/2-size + dx;           ypts[4] = h/2+size + dy;// - 2*size;
         }
         // draw the thing!
-        img.setColor(Color.RED);
+        img.setColor(new Color(59,36,11));
         img.fillPolygon(xpts,ypts,4);
         img.setColor(Color.BLACK); // black outline!
         img.drawPolygon(xpts,ypts,4);

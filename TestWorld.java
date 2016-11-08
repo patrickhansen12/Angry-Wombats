@@ -36,12 +36,12 @@ public class TestWorld  extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         
-        super(960, 540, 1);
-        //GreenfootImage bg = new GreenfootImage("bg.jpg");
-        //setBackground(bg);
+        super(1000, 563, 1);
+        GreenfootImage bg = new GreenfootImage("bg.jpg");
+        setBackground(bg);
         setPaintOrder(Slingshot.class,Pellet.class,Strap.class);
         addPellets();
-        addObject(s,130,350 - s.getImage().getHeight()/2);
+        addObject(s,130,550 - s.getImage().getHeight()/2);
        
     }
     
