@@ -1,4 +1,4 @@
-package SlingShot;
+ 
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.LinkedList;
@@ -16,7 +16,7 @@ public class TestWorld  extends World
     boolean pelletadded = false;
     boolean shotloaded = false;
     LinkedList <Pellet> pellets = new LinkedList();
-    
+    private int f;
  
     double pelletmass = 5;
     boolean paused = false;
