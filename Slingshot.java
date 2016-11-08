@@ -13,7 +13,7 @@ public class Slingshot  extends Actor
     // the images of the slingshot!!
     GreenfootImage sshot1 = new GreenfootImage("Sshotwstrap.gif");
     GreenfootImage sshot2 = new GreenfootImage("Sshot.gif");
-
+    private int j;
     Pellet pellet; // the pellet that gets shot
     MouseInfo m; // need the mouse info....
     Strap s1, s2; // the straps of the slingshot
