@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Slingshot
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Slingshot\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Slingshot\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ shootPellet()
+comment3.params=p
+comment3.target=void\ addPellet(Pellet)
+comment4.params=
+comment4.target=void\ doLoadedStuff()
+comment5.params=input
+comment5.target=void\ setElasticNum(double)
+comment5.text=\r\n\ ended\ up\ not\ needing\ this.\ \ Still\ might\ use\ if\ for\ later\r\n\ \ \ \ public\ boolean\ mouseInNeighborhood()\ {\r\n\ \ \ \ \ \ \ \ if\ (Greenfoot.mouseMoved(null))\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ m\ \=\ Greenfoot.getMouseInfo();\r\n\ \ \ \ \ \ \ \ \ \ \ \ mousex\ \=\ m.getX();\ mousey\ \=\ m.getY();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ //\ Think\ I'll\ make\ the\ range\ 150\ or\ so\r\n\ \ \ \ \ \ \ \ if\ ((Math.abs(getX()-mousex)\ <\ 150)\ &&\ (Math.abs(getY()-mousey)\ <\ 150))\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ true;\r\n\ \ \ \ \ \ \ \ }\ else\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ false;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
+comment6.params=
+comment6.target=void\ initialize()
+numComments=7
