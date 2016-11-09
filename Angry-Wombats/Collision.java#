@@ -7,14 +7,8 @@ import java.util.ArrayList;
  * @author (Busch2207 (Moritz L.)) 
  * @version (09.11.2013)
  */
-public abstract class Target extends Actor
+public class Collision extends Actor
 {
-    public void act() {
-        if(this.touch(Wombat.class)) {
-            getWorld().removeObject(this);
-        }
-    }
-    
     /** This method is a pixel perfect collision detection. Returns a List of all Actors, that are touched by this object */
     public List getTouchedObjects(Class clss)
     {

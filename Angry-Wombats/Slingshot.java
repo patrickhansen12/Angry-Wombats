@@ -133,11 +133,11 @@ public class Slingshot extends Actor
                 mousey = m.getY();
                 anotherVect.setX(-(getX()-mousex));
                 anotherVect.setY(-(getY()-mousey));
-                if (anotherVect.magnitude() <= 90) {
+                if (anotherVect.magnitude() <= 180) {
                     // the wombat gets loaded at about getY()-14.  The displacement is the difference
                     // between the wombat's position and that location.  
                     displacement.setX(-(getX() - mousex));  // these should be negitive based on how the
-                    displacement.setY(-(getY()-75 - mousey)); // coord system is set up, didn't catch that at first
+                    displacement.setY(-(getY()-60 - mousey)); // coord system is set up, didn't catch that at first
                     //wombat.setXandY(mousex-wombat.getImage().getWidth()/2,mousey+wombat.getImage().getHeight()/2); // move the wombat's location to wherever mousex and mousey is 
                     //if (displacement.magnitude() <= 90) {
                     //wombat.setXandY(mousex-wombat.getImage().getWidth()/2,mousey+wombat.getImage().getHeight()/2);
@@ -148,7 +148,7 @@ public class Slingshot extends Actor
                 } else {
                     // set the displacement vector, as well as the wombat, at a length of 90 along the mose position vector
                     displacement.setX(-(getX() - mousex));  
-                    displacement.setY(-(getY()-150 - mousey));
+                    displacement.setY(-(getY()-60 - mousey));
                     scalar = (90/anotherVect.magnitude());
                     displacement.scalarMultiply(scalar); // that's the displacement vector....
                     anotherVect.scalarMultiply(scalar);

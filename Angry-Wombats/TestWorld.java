@@ -1,4 +1,4 @@
- 
+     
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.LinkedList;
@@ -16,7 +16,9 @@ public class TestWorld  extends World
     boolean wombatadded = false;
     boolean shotloaded = false;
     LinkedList <Wombat> wombats = new LinkedList();
-
+ GreenfootSound backgroundMusic = new GreenfootSound("music.mp3");
+ private boolean musicplaying = false;
+ 
     double wombatmass = 5;
     boolean paused = false;
     double grav = 0.6; // tell the wombats what gravity is
@@ -48,7 +50,12 @@ public class TestWorld  extends World
     }
 
     public void act() {
-
+      if(!musicplaying){
+    
+     backgroundMusic.playLoop();
+     musicplaying = true;
+     
+    }
         // added a pause feture, to keep things from getting too mixed up.
         if(!paused) {
             if (!shotloaded) {

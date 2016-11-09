@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Strap
-comment0.text=\n\ So,\ this\ is\ basically\ a\ square.\ \ The\ square\ will\ streach\ out\ one\ of\ it's\ corners\ \n\ to\ wherever\ it's\ told\ to\ as\ long\ as\ it's\ witin\ 100\ pixels,\ or\ however\ big\ you\ want\n\ to\ make\ the\ image\n\ \n\ @author\ Ben\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ So,\ this\ is\ basically\ a\ square.\ \ The\ square\ will\ streach\ out\ one\ of\ it's\ corners\ \r\n\ to\ wherever\ it's\ told\ to\ as\ long\ as\ it's\ witin\ 100\ pixels,\ or\ however\ big\ you\ want\r\n\ to\ make\ the\ image\r\n\ \r\n\ @author\ Ben\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=void\ act()
 comment2.params=x\ y

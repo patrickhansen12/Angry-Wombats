@@ -1,7 +1,18 @@
 #BlueJ class context
 comment0.target=Target
-comment0.text=\n\ Write\ a\ description\ of\ class\ Target\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ This\ class\ contains\ two\ methods\ for\ pixel-perfect\ collision-detection\r\n\ \r\n\ @author\ (Busch2207\ (Moritz\ L.))\ \r\n\ @version\ (09.11.2013)\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Target\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=2
+comment2.params=clss
+comment2.target=java.util.List\ getTouchedObjects(java.lang.Class)
+comment2.text=This\ method\ is\ a\ pixel\ perfect\ collision\ detection.\ Returns\ a\ List\ of\ all\ Actors,\ that\ are\ touched\ by\ this\ object
+comment3.params=clss
+comment3.target=boolean\ touch(java.lang.Class)
+comment3.text=This\ method\ is\ a\ pixel\ perfect\ collision\ detection.\ Return,\ if\ it\ intersects\ an\ actor\ of\ the\ given\ class
+comment4.params=clss
+comment4.target=greenfoot.Actor\ getOneTouchedObject(java.lang.Class)
+comment4.text=This\ method\ is\ a\ pixel\ perfect\ collision\ detection.\ It\ returns\ a\ touched\ actor\ of\ the\ given\ class,\ if\ there's\ one\ touched.
+comment5.params=a_big
+comment5.target=boolean\ touch(greenfoot.Actor)
+comment5.text=This\ method\ is\ a\ pixel\ perfect\ collision\ detection.\ Returns\ true,\ if\ the\ object\ touchs\ the\ given\ Actor
+numComments=6

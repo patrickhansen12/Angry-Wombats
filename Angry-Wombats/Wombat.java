@@ -132,6 +132,7 @@ public class Wombat  extends Actor
     }
     
     public void release(Vect veloc) {
+        Greenfoot.playSound("birdy.mp3");
         launched = true;
         shotcontrol = false;
         velocity.setEqualTo(veloc);

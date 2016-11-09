@@ -14,6 +14,6 @@ public class Stone extends Target
      */
     public void act() 
     {
-        // Add your action code here.
+        super.act();
     }    
 }
