@@ -14,6 +14,13 @@ public class Stone extends Target
      */
     public void act() 
     {
-        super.act();
+        if(this.touch(Wombat.class)) {
+            if(hitCount >= life) {
+                getWorld().removeObject(this);
+            } else {
+                setImage("rock_broken.png");
+                hitCount++;
+            }
+        }
     }    
 }

@@ -9,9 +9,29 @@ import java.util.ArrayList;
  */
 public abstract class Target extends Actor
 {
+    protected TestWorld t;
+    protected Actor currentWombat;
+    protected int hitCount = 0;
+    protected int life;
+    public Target(int life) {
+        this.life = life;
+        if(t.getWombat() != null) {
+            currentWombat = t.getWombat();
+        }
+    }
+    public Target() {
+        this.life = 2;
+        if(t.getWombat() != null) {
+            currentWombat = t.getWombat();
+        }
+    }
     public void act() {
-        if(this.touch(Wombat.class)) {
-            getWorld().removeObject(this);
+        if(this.touch(currentWombat)) {
+            if(hitCount >= life) {
+                getWorld().removeObject(this);
+            } else {
+               
+            }
         }
     }
     

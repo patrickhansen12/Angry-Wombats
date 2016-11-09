@@ -35,6 +35,8 @@ public class Wombat  extends Actor
     Vect velocity = new Vect(10,-10);
     Vect windVect = new Vect(0,0);
     
+    private int hitCount = 0;
+    
     public Wombat() {
   
         mass = 5; // some number
@@ -52,6 +54,7 @@ public class Wombat  extends Actor
         }
         
         move();
+        
     }    
     
     public void move() {
@@ -132,7 +135,7 @@ public class Wombat  extends Actor
     }
     
     public void release(Vect veloc) {
-        Greenfoot.playSound("birdy.mp3");
+        Greenfoot.playSound("birdy.wav");
         launched = true;
         shotcontrol = false;
         velocity.setEqualTo(veloc);
@@ -224,13 +227,11 @@ public class Wombat  extends Actor
         initialized = true;
     }
     
-    public class makeDot extends TimerTask
-    {
-        public void run() {
-            if (!takenaway) {
-              
-            }
-            dotscheduled = false;
-        }
+    public void increaseHit() {
+        hitCount++;
+    }
+    
+    public int getHits() {
+        return hitCount;
     }
 }

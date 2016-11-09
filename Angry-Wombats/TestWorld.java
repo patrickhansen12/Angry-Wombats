@@ -1,5 +1,3 @@
-     
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -15,9 +13,9 @@ public class TestWorld  extends World
     Slingshot s = new Slingshot();
     boolean wombatadded = false;
     boolean shotloaded = false;
-    LinkedList <Wombat> wombats = new LinkedList();
- GreenfootSound backgroundMusic = new GreenfootSound("music.mp3");
- private boolean musicplaying = false;
+    public LinkedList <Wombat> wombats = new LinkedList();
+    GreenfootSound backgroundMusic = new GreenfootSound("music.wav");
+    private boolean musicplaying = false;
  
     double wombatmass = 5;
     boolean paused = false;
@@ -202,5 +200,12 @@ public class TestWorld  extends World
         stone3.setLocation(879,366);
         woodvertical2.setLocation(954,363);
         stone3.setLocation(878,362);
+    }
+    public Wombat getWombat() {
+        if(wombats.element() != null) {
+            return wombats.element();
+        } else {
+            return null;
+        }
     }
 }

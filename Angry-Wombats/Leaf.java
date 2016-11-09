@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Leaf extends Actor
+public class Leaf extends Target
 {
     /**
      * Act - do whatever the Leaf wants to do. This method is called whenever
@@ -14,6 +14,6 @@ public class Leaf extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        super.act();
     }    
 }
