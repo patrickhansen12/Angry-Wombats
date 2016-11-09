@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Slingshot
+comment0.text=\n\ Write\ a\ description\ of\ class\ Slingshot\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Slingshot\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ shootWombat()
+comment3.params=p
+comment3.target=void\ addWombat(Wombat)
+comment4.params=
+comment4.target=void\ doLoadedStuff()
+comment5.params=input
+comment5.target=void\ setElasticNum(double)
+comment6.params=
+comment6.target=void\ initialize()
+numComments=7
