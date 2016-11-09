@@ -16,6 +16,7 @@ public class TestWorld  extends World
     boolean pelletadded = false;
     boolean shotloaded = false;
     LinkedList <Pellet> pellets = new LinkedList();
+
  
     double pelletmass = 5;
     boolean paused = false;
@@ -36,12 +37,15 @@ public class TestWorld  extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         
-        super(1000, 563, 1);
-        GreenfootImage bg = new GreenfootImage("bg.jpg");
-        setBackground(bg);
+
+        super(1200, 400, 1); 
+       
+        //GreenfootImage bg = new GreenfootImage("bg.jpg");
+        //setBackground(bg);
+
         setPaintOrder(Slingshot.class,Pellet.class,Strap.class);
         addPellets();
-        addObject(s,130,550 - s.getImage().getHeight()/2);
+        addObject(s,130,395 - s.getImage().getHeight()/2);
        
     }
     
@@ -50,8 +54,12 @@ public class TestWorld  extends World
         // added a pause feture, to keep things from getting too mixed up.
         if(!paused) {
             if (!shotloaded) {
-                sendToSShot(pellets.element()); // the pellet at the front of the line.  Send it to the shot
-                shotloaded = true;
+                if(!pellets.isEmpty()) {
+                    sendToSShot(pellets.element()); // the pellet at the front of the line.  Send it to the shot
+                    shotloaded = true;
+                } else {
+                    endGame();
+                }
             }
         }
         
@@ -63,7 +71,7 @@ public class TestWorld  extends World
         for (int i = 0 ; i < 5; i++) {
             Pellet p = new Pellet();
             pellets.add(p);
-            addObject(p,5*15-(i)*15,350-p.getImage().getHeight()/2);
+            addObject(p,5*15-(i)*15,100-p.getImage().getHeight()/2);
         }
         // pellet at index 4 is at the front of the line.  I wish I could use a queue here.. maybe I can
         // move the first pellet to the 
@@ -80,15 +88,19 @@ public class TestWorld  extends World
         p.setMass(pelletmass);
         //windVect.scalarMultiply(-1); // for some reason it's all backward.  Just multiply by -1 though
         p.setWind(windVect); 
-        s.addPellet(p);
+        if(pellets.isEmpty()) {
+            endGame();
+        } else {
+            s.addPellet(p);
+        }
     }
     
     public void addAnotherPellet() {
         // so remove the pellet at the first part of the list, and add another pellet at the back of the list
         pellets.removeFirst();
         Pellet p = new Pellet(); // make a new pellet
-        addObject(p,0,350-p.getImage().getHeight()/2); // add it to the world..
-        pellets.addLast(p); // add it to the end of the list
+       // addObject(p,0,100-p.getImage().getHeight()/2); // add it to the world..
+       // pellets.addLast(p); // add it to the end of the list
         // now move 'em right...
         moveRight();
         shotloaded = false; // and then tell the act() function to load another shot...
@@ -123,7 +135,9 @@ public class TestWorld  extends World
         }
     }
    
-    
+    public void endGame() {
+        Greenfoot.stop();
+    }
     
     public void Pause() {
         paused = true;

@@ -73,7 +73,7 @@ public class Pellet  extends Actor
             setLocation((int) x,(int) y);
             // test if it got to the slingshot yet
             if (Math.abs(getX()-130)<=velocity.getX()) {
-                x = 130; y = 309;
+                x = 130; y = 340;
                 setLocation((int) x,(int) y);
                 senttosshot = false; // move on to the next stage
                 shotcontrol = true;
@@ -105,9 +105,7 @@ public class Pellet  extends Actor
                  removed  = true;
             } else {
                 if (removed) {
-                    GreenfootImage img = new GreenfootImage(8,8);
-                    img.fillOval(0,0,8,8);
-                    setImage(img);
+                    setImage("wombat.png");
                 }
             }
             // finally, test to see if it is off the screen.  It will never actually move off the screen, so see
@@ -139,10 +137,9 @@ public class Pellet  extends Actor
         velocity.setEqualTo(veloc);
     }
     
-    // needs some work!!
     public void sendToSShot(){
         // ok these numbers work when gravity is 0.6, so set it to 0.6 then set it back
-        Phyx.setGravity(0.6);
+        Phyx.setGravity(4);
         velocity.setX(3.8);
         velocity.setY(-7.5);
         // now set it back to whatever it was.  Don't do this until launched though. 

@@ -11,14 +11,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Slingshot extends Actor
 {
     // the images of the slingshot!!
-    //GreenfootImage sshot1 = new GreenfootImage("Sshotwstrap.gif");
-    //GreenfootImage sshot2 = new GreenfootImage("Sshot.gif");
     GreenfootImage sshot1 = new GreenfootImage("slingshot.png");
     GreenfootImage sshot2 = new GreenfootImage("slingshot.png");
     Pellet pellet; // the pellet that gets shot
     MouseInfo m; // need the mouse info....
     Strap s1, s2; // the straps of the slingshot
-    PelletRect pr = new PelletRect();
+  
     Vect displacement = new Vect(0,0); // how far the straps get pulled
     Vect elasticforce = new Vect(0,0); // the force the slingshot puts on the pellet
     Vect velocity = new Vect(0,0); // the final velocity of the pellet before it gets launched
@@ -83,10 +81,7 @@ public class Slingshot extends Actor
         s2.setThePoint(getX() + displacement.getX(),(getY()-14) + displacement.getY());
         // I tried to make the pellet rect move with the pellet, but greenfoot draws them at different times, so it didn't work.
         // just get rid of the pellet rect for now.
-        if  (!pelletrectremoved) {
-            getWorld().removeObject(pr);
-            pelletrectremoved = true;
-        }
+        
         pellet.setXandY(getX() + displacement.getX(),(getY()-14) + displacement.getY());
         // next we see if the pellet has passed the point where it was fired.  The pellet can be fired from
         // any direction.  Now when fireing, the displacement of the pellet is getting smaller.
@@ -105,7 +100,7 @@ public class Slingshot extends Actor
             displacement.setX(0); displacement.setY(0);
             elasticforce.setX(0); elasticforce.setY(0);
             setImage(sshot1); // set the image back..
-            getWorld().setPaintOrder(Pellet.class,Slingshot.class,PelletRect.class); // now set the draw order don't forget the dial!
+            getWorld().setPaintOrder(Pellet.class,Slingshot.class); // now set the draw order don't forget the dial!
             pelletrectadded = false;
             pelletrectremoved = false;
         }
@@ -128,11 +123,7 @@ public class Slingshot extends Actor
         //   getWorld().setPaintOrder(Slingshot.class, PelletRect.class, Pellet.class);
         //}
             if (Greenfoot.mouseDragged(null)) {
-                if (!pelletrectadded) {
-                    pelletrectadded = true;
-                    getWorld().addObject(pr,0,0);
-                    getWorld().setPaintOrder(Slingshot.class, PelletRect.class, Pellet.class);
-                }
+              
                 // there is probabily a better way to do this.
                 setImage(sshot2);
                 // getWorld().setPaintOrder(Slingshot.class,Pellet.class); // now draw the slingshot first
@@ -157,7 +148,7 @@ public class Slingshot extends Actor
                 } else {
                     // set the displacement vector, as well as the pellet, at a length of 90 along the mose position vector
                     displacement.setX(-(getX() - mousex));  
-                    displacement.setY(-(getY()-14 - mousey));
+                    displacement.setY(-(getY()-90 - mousey));
                     scalar = (90/anotherVect.magnitude());
                     displacement.scalarMultiply(scalar); // that's the displacement vector....
                     anotherVect.scalarMultiply(scalar);
@@ -175,9 +166,7 @@ public class Slingshot extends Actor
             pellet.setXandY(getX()+anotherVectUnit.getX()+anotherVect.getX()-pellet.getImage().getWidth()/2,
                             getY()+anotherVectUnit.getY()+anotherVect.getY()+pellet.getImage().getHeight()/2);
             anotherVectUnit.scalarMultiply(0.3);
-            pr.setPosition(getX()+anotherVectUnit.getX()+anotherVect.getX()-pellet.getImage().getWidth()/2,
-                            getY()+anotherVectUnit.getY()+anotherVect.getY()+pellet.getImage().getHeight()/2);
-            pr.rotate(-anotherVect.getAngle());
+          
         }
     }
     /*
@@ -204,8 +193,8 @@ public class Slingshot extends Actor
         s1 = new Strap();
         s2 = new Strap();
         t = (TestWorld) getWorld();
-        getWorld().addObject(s1,getX() +30,getY()-85); // the order in which these are added matters
-        getWorld().addObject(s2,getX() -20,getY()-85); // when it comes to which gets drawn first
+        getWorld().addObject(s1,getX() +9,getY()-23); // the order in which these are added matters
+        getWorld().addObject(s2,getX() -6,getY()-23); // when it comes to which gets drawn first
         setImage(sshot1);
         getWorld().setPaintOrder(Pellet.class,Slingshot.class); // draw the pellet on top of the sling shot
         initialized = true;
