@@ -1,16 +1,21 @@
 #BlueJ class context
 comment0.target=Target
-comment0.text=\r\n\ This\ class\ contains\ two\ methods\ for\ pixel-perfect\ collision-detection\r\n\ \r\n\ @author\ (Busch2207\ (Moritz\ L.))\ \r\n\ @version\ (09.11.2013)\r\n
+comment0.text=\r\n\ This\ is\ ours.\ Just\ a\ super\ for\ targets.\r\n\ \r\n
 comment1.params=life
 comment1.target=Target(int)
+comment1.text=If\ you\ want\ to\ give\ your\ own\ "strenght"\ to\ your\ targets\ *
 comment2.params=
 comment2.target=Target()
+comment2.text=Default\ strenght\ is\ 2\ *
 comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ gotHit()
+comment4.text=Basically\ this\ is\ for\ the\ wooden\ obstacles.\ It\ plays\ the\ crash\ sound\ and\ increases\ the\ hit\ number\ *
 comment5.params=
 comment5.target=int\ getHits()
+comment5.text=Returns\ an\ int\ of\ how\ many\ times\ the\ target\ was\ hit.\ *
 comment6.params=
 comment6.target=void\ increaseHits()
+comment6.text=Increases\ hits\ of\ target.\ Not\ used\ by\ us\ (because\ of\ protected\ variables)\ but\ useful\ in\ the\ future.\ *
 numComments=7

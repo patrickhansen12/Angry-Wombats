@@ -1,9 +1,10 @@
- 
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 
 /**
+ * 
+ * The strap of the slingshot. modified to get it brown
+ * 
  * So, this is basically a square.  The square will streach out one of it's corners 
  * to wherever it's told to as long as it's witin 100 pixels, or however big you want
  * to make the image

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Stone here.
+ * Stone obstacle
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -9,14 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Stone extends Target
 {
     public Stone() {
-        super();
+        super(); //init super's variables
     }
     
     public void act() 
     {
         if(hitCount == life-1) {
-            setImage("rock_broken.png");
+            setImage("rock_broken.png"); //change image
         }
-        super.act();
+        super.act(); //remove if "died"
     }    
 }

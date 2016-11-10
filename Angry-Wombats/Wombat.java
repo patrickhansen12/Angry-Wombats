@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Write a description of class Wombat here.
+ * We have copied a slingshot base with physics. Most of these are not ours. 
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -27,8 +27,11 @@ public class Wombat  extends Actor
     boolean removed = false; // set to true if it goes too high
     GreenfootImage clr = new GreenfootImage(1,1);// a clear image incase it goes to high
     WombatWorld t;// = new WombatWorld();
+    
+    //our code.
     private boolean touchedObstacle = false;
-    private Target touchedShit;
+    private Target touchedTarget;
+    //not our code.
     boolean dotscheduled = false;
     boolean takenaway = false; // gets set to true when the wombat gets removed! (so the timer doesn't draw a dot)
 
@@ -50,13 +53,16 @@ public class Wombat  extends Actor
         if (!initialized) {
             initialize();
         }
-        touchedShit = (Target) getOneTouchedObject(Target.class);
-        if(this != null) {
+        //our code. get the touched target as an actor, converts back to Target
+        touchedTarget = (Target) getOneTouchedObject(Target.class);
+        //checks if wombat touched a target.
+        if(this != null) { //just to surely avoid NullPointers...
             checkObstacle();
         }
         move();
     }    
     
+    /**Moves the wombat using physics. Not our code but modified. **/
     public void move() {
         if (movingright) {
             x += speed;
@@ -121,18 +127,22 @@ public class Wombat  extends Actor
         }
     }
     
+    /** Gets the mass of the wombat. Returns a double. Not our code. **/
     public double getMass() {
         return mass;
     }
     
+    /** Removes the current wombat and reloads the slingshot Modified code.**/
     public void removeWombat() {
         getWorld().removeObject(this); // remove this object
         //t = (WombatWorld) getWorld();
         //t.moveRight();
-        t.addAnotherWombat(); // add another wombat, & reload ths slingshot!
+        //t.addAnotherWombat(); // add another wombat, & reload ths slingshot!
+        t.reload(); //our code. reload slingshot without addAnotherWombat()
         takenaway = true;
     }
     
+    /** Shoots the slingshot. Modified to play shooting sound. **/
     public void release(Vect veloc) {
         Greenfoot.playSound("birdy.wav");
         launched = true;
@@ -140,6 +150,7 @@ public class Wombat  extends Actor
         velocity.setEqualTo(veloc);
     }
     
+    /** Makes next wombat jump in the slingshot. Not our code **/
     public void sendToSShot(){
         // ok these numbers work when gravity is 4, so set it to 4 then set it back
         Phyx.setGravity(4);
@@ -149,7 +160,7 @@ public class Wombat  extends Actor
         shotcontrol = true;
     }
     
-
+    /** Gets current angle of the wombat. Not our code, modified to harden the game **/
     public int getAngle() {
        
         int vx,vy; // the velocity x, and the velocity y
@@ -175,7 +186,7 @@ public class Wombat  extends Actor
        
     }
    
-  
+    //not our code....
     public void setXandY(double a, double b) {
         x = a;
         y = b;
@@ -195,14 +206,22 @@ public class Wombat  extends Actor
         initialized = true;
     }
     
+    //our code. checks if wombat hit a target. Tells target if it got hit.
+    /** Checks if the wombat hit a target. If yes, tells the target that it got hit. **/
     public void checkObstacle() {
-        if(touchedShit != null && this.touch(touchedShit) && !touchedObstacle) {
-            touchedShit.gotHit();
+        if(touchedTarget != null && this.touch(touchedTarget) && !touchedObstacle) { 
+            touchedTarget.gotHit();
             this.touchedObstacle = true;
         }
     }
     
-    /*============== Touch sensor thing ================*/
+    /*
+     * ============== Collision sensor thing ================
+     * This is a downloaded pixel perfect collision sensor method collection. 
+     * Found on greenfoot.org
+     * Used to check if target and wombat are touching. Easy to use because of return types.
+     */
+    
     
     /** This method is a pixel perfect collision detection. Returns a List of all Actors, that are touched by this object */
     public List getTouchedObjects(Class clss)

@@ -16,13 +16,13 @@ public class WombatWorld extends World
     LinkedList <Wombat> wombats = new LinkedList();
     
     GreenfootSound backgroundMusic = new GreenfootSound("music.wav");
-    private boolean musicplaying = false;
-    private int wombatNumber = 15;
+    private boolean musicplaying = false; //just to start it once
+    private int wombatNumber = 15; //Max wombats (tries) that you have
     
+    //those are not our code
     double wombatmass = 5;
     boolean paused = false;
     
-    // testing variables
     boolean test1 = false;
     boolean test2 = false;
     double testnum;
@@ -41,36 +41,33 @@ public class WombatWorld extends World
         setPaintOrder(Slingshot.class,Wombat.class,Strap.class);
 
         addWombats();
-        addObject(s,130,395 - s.getImage().getHeight()/2);
+        addObject(s,130,395 - s.getImage().getHeight()/2); //add slingshot
 
         prepare();
     }
 
     public void act() {
-    if(!musicplaying){
-    
-     backgroundMusic.playLoop();
-     musicplaying = true;
-     
-    }
-     if(checkIfWin()) {
+        //start the music
+        if(!musicplaying) {
+             backgroundMusic.playLoop();
+             musicplaying = true;
+        }
+        //check win state first. if you put this below, you will lose anyway because of "else { endGame(false); }"
+        if(checkIfWin()) {
             endGame(true);
         }
-        // added a pause feture, to keep things from getting too mixed up.
-        if(!paused) {
-            if (!shotloaded) {
-                if(!wombats.isEmpty()) {
-                    sendToSShot(wombats.element()); // the wombat at the front of the line.  Send it to the shot
-                    shotloaded = true;
-                } else {
-                    endGame(false);
-                }
+        //reload slingshot if you have wombats left. (modified code)
+        if (!shotloaded) {
+            if(!wombats.isEmpty()) {
+                sendToSShot(wombats.element()); // the wombat at the front of the line.  Send it to the shot
+                shotloaded = true;
+            } else {
+                endGame(false); //lose
             }
         }
-        // add some targets to shoot at
-
     }
 
+    /** Adds as many wombats as definied to the world and sends the first in the slingshot.  **/
     public void addWombats() {
         for(int i=0;i<wombatNumber;i++) {
             Wombat p = new Wombat();
@@ -83,6 +80,7 @@ public class WombatWorld extends World
 
     // puts the wombat at the head of the list into the slingshot.  Also gives the slingshot a reference 
     // to the wombat.
+    /** Modified code. Sends next wombat in the slingshot if you have more left. If not, you will lose **/
     public void sendToSShot(Wombat p) {
         p.sendToSShot();
         wombatNumber--;
@@ -93,23 +91,33 @@ public class WombatWorld extends World
         }
     }
 
+    //not used, we turned off unlimited wombats.
+    /** Adds one wombat to the end of the list and moves all the others to right. (Not used by us) **/
     public void addAnotherWombat() {
         // so remove the wombat at the first part of the list, and add another wombat at the back of the list
         wombats.removeFirst();
         Wombat p = new Wombat(); // make a new wombat
-        // addObject(p,0,100-p.getImage().getHeight()/2); // add it to the world..
-        // wombats.addLast(p); // add it to the end of the list
+        addObject(p,0,100-p.getImage().getHeight()/2); // add it to the world..
+        wombats.addLast(p); // add it to the end of the list
         // now move 'em right...
-        //moveRight();
+        moveRight();
         shotloaded = false; // and then tell the act() function to load another shot...
     }
-
+    
+    public void reload() {
+        wombats.removeFirst();
+        shotloaded = false;
+    }
+    
+    //not used
+    /** This moves the wombats to the right (Not used by us) **/
     public void moveRight() {
         for (Wombat p: wombats) {
             p.moveRight(1,15);
         }
     }
-
+    
+    //not our code
     /**
      * This method gets input from the inputbox class.  The boxnum indicates how to interpet this input.
      */
@@ -131,6 +139,8 @@ public class WombatWorld extends World
         }
     }
 
+    //our code. end the game with only two possible states: win or lose
+    /**Ends the game and makes you win or lose. true parameter will win, false will lose **/
     public void endGame(boolean win) {
         if(win) {
             removeObjects(getObjects(null));
@@ -146,14 +156,6 @@ public class WombatWorld extends World
             Greenfoot.playSound("gameover.wav");
             Greenfoot.stop();
         }
-    }
-
-    public void Pause() {
-        paused = true;
-    }
-
-    public void unPause() {
-        paused = false;
     }
 
     /**
@@ -249,10 +251,8 @@ public class WombatWorld extends World
         leaf3.setLocation(1027,129);
     }
     
-    public int getWombatsLeft() {
-        return wombatNumber;
-    }
-    
+    //our code. checks if you ate all the leaves so you can win if it's true.
+    /** Check if player won. Returns true if player ate all the leaves. You can use this with endGame() **/
     public boolean checkIfWin() {
         if(getObjects(Leaf.class).isEmpty()) {
             return true;

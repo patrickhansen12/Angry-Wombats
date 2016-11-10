@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Phyx
-comment0.text=\n\ Simplified\ physics\ class\ for\ this\ scenario\n\ \n\ @author\ Ben\ \n\ @version\ 1\n
+comment0.text=\r\n\ \r\n\ Simplified\ physics\ class\ for\ this\ scenario\r\n\ \r\n\ @author\ Ben\ \r\n\ @version\ 1\r\n
 comment1.params=
 comment1.target=Phyx()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Phyx\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Phyx\r\n
 comment2.params=velocity\ forces
 comment2.target=Vect\ getVelocity(Vect,\ java.util.List)
-comment2.text=\n\ Returns\ a\ change\ in\ X\ position\ based\ on\ current\ velocity\ and\ forces\ acting\ on\ \n\ the\ object.\ \ Overloaded\ function,\ one\ takes\ a\ vect,\ the\ other\ takes\ a\ list\ of\ vects\n
+comment2.text=\r\n\ Returns\ a\ change\ in\ X\ position\ based\ on\ current\ velocity\ and\ forces\ acting\ on\ \r\n\ the\ object.\ \ Overloaded\ function,\ one\ takes\ a\ vect,\ the\ other\ takes\ a\ list\ of\ vects\r\n
 comment3.params=velocity\ number
 comment3.target=Vect\ airFriction(Vect,\ double)
 comment4.params=displacement\ forceConstant

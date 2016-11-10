@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Wood here.
+ * Wood obstacle
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Wood extends Target
 {
     public Wood() {
-        super();
+        super(); //initialize the super's variables.
     }
     /**
      * Act - do whatever the Wood wants to do. This method is called whenever
@@ -18,8 +18,8 @@ public class Wood extends Target
     public void act() 
     {
        if(hitCount == life-1) {
-           setImage("wood_broken.png");
+           setImage("wood_broken.png"); //set the image to broken
        }
-       super.act();
+       super.act(); //remove if "died"
     }    
 }

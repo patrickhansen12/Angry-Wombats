@@ -1,7 +1,6 @@
- 
-
 import java.util.List;
 /**
+ * Not our code.
  * Simplified physics class for this scenario
  * 
  * @author Ben 

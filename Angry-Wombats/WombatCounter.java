@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.*;
 
 /**
- * Write a description of class WombatCounter here.
+ * This whole thing is ours. Just counts and displays the wombats left. Minus the one which is already loaded.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -15,8 +15,9 @@ public class WombatCounter extends Actor
      */
     
     public WombatCounter() {
+        //get rid of "greenfoot.png"
         GreenfootImage starterimage = new GreenfootImage(1,1);
-        setImage(starterimage);
+        setImage(starterimage); 
     }
     
     public void act() 
@@ -26,7 +27,7 @@ public class WombatCounter extends Actor
      counter.setFont(new Font("Helvetica",Font.PLAIN,20));
      counter.setColor(Color.WHITE);
      int left = getWorld().getObjects(Wombat.class).size()-1;
-     if(left < 0) { left = 0; }
+     if(left < 0) { left = 0; } //avoid negative values
      counter.drawString(left + " Wombats left", 0,80);
      setImage(counter);
     }    

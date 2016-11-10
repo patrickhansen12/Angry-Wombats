@@ -1,6 +1,7 @@
  
 
 /**
+ * Not our code.
  * Vect is a 2D vector class. You can set the x and y, get the magnitude, and add 'em
  * 
  * @author Ben 

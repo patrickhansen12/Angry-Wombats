@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Leaf here.
+ * leaf. you have to get all of these to win.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -9,12 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Leaf extends Target
 {
     public Leaf() {
-        super(1);
+        super(1); //leaf has only one strenght (just eat it)
     }
     public void act() 
     {
-        super.act();
+        super.act(); //remove if died
     }
+    /** Leaf has an other sound, so we have to override the wood crash sound. **/
     @Override
     public void gotHit() {
         Greenfoot.playSound("leaf.wav");

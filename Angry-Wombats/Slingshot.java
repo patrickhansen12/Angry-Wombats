@@ -3,7 +3,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Slingshot here.
+ * Not our slingshot but modified. Used our own image.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -44,7 +44,7 @@ public class Slingshot extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        //not our code.
         if (!initialized) {
             initialize();
         }
@@ -63,6 +63,7 @@ public class Slingshot extends Actor
         }
     }   
     
+    /** Shoots the wombat. not our code. **/
     public void shootWombat() {
         // so, accelerate toward where the wombat got loaded, until the wombat passes that
         // point.  Get the wombat to move, then tell the straps to follow the wombat.
@@ -106,7 +107,7 @@ public class Slingshot extends Actor
         }
         
     }
-    // this endes up giving control of the wombat to the slingshot, once it gets loaded
+    // this endes up giving control of the wombat to the slingshot, once it gets loaded //not our code.
     public void addWombat(Wombat p) {
         wombat = p;
         loaded = true;
@@ -115,6 +116,7 @@ public class Slingshot extends Actor
     
     public void doLoadedStuff()
     {
+        //not our code.
         // alright.  we should make sure the mouse is in the area of the slingshot
         //if (mouseInNeighborhood()) {
         //if (!wombatrectadded) {
@@ -184,9 +186,5 @@ public class Slingshot extends Actor
         setImage(sshot1);
         getWorld().setPaintOrder(Wombat.class,Slingshot.class); // draw the wombat on top of the sling shot
         initialized = true;
-    }
-    
-    public Wombat getCurrentWombat() {
-        return wombat;
     }
 }

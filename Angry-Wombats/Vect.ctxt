@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Vect
-comment0.text=\r\n\ Vect\ is\ a\ 2D\ vector\ class.\ You\ can\ set\ the\ x\ and\ y,\ get\ the\ magnitude,\ and\ add\ 'em\r\n\ \r\n\ @author\ Ben\ \r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Not\ our\ \r\n\ Vect\ is\ a\ 2D\ vector\ class.\ You\ can\ set\ the\ x\ and\ y,\ get\ the\ magnitude,\ and\ add\ 'em\r\n\ \r\n\ @author\ Ben\ \r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=Vect()
 comment1.text=\r\n\ default\ x\ and\ y\ values\r\n
