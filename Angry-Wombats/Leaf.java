@@ -8,10 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Leaf extends Target
 {
-    /**
-     * Act - do whatever the Leaf wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Leaf() {
+        super(1);
+    }
     public void act() 
     {
         super.act();

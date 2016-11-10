@@ -13,7 +13,8 @@ public class TestWorld  extends World
     Slingshot s = new Slingshot();
     boolean wombatadded = false;
     boolean shotloaded = false;
-    public LinkedList <Wombat> wombats = new LinkedList();
+    LinkedList <Wombat> wombats = new LinkedList();
+    
     GreenfootSound backgroundMusic = new GreenfootSound("music.wav");
     private boolean musicplaying = false;
  
@@ -37,10 +38,9 @@ public class TestWorld  extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
 
         super(1200, 400, 1); 
-        //GreenfootImage bg = new GreenfootImage("bg.jpg");
-        //setBackground(bg);
 
         setPaintOrder(Slingshot.class,Wombat.class,Strap.class);
+
         addWombats();
         addObject(s,130,395 - s.getImage().getHeight()/2);
 
@@ -71,7 +71,7 @@ public class TestWorld  extends World
     }
 
     public void addWombats() {
-        for (int i = 0 ; i < 5; i++) {
+        for(int i=0;i<5;i++) {
             Wombat p = new Wombat();
             wombats.add(p);
             addObject(p,5*15-(i)*15,50-p.getImage().getHeight()/2);
@@ -200,12 +200,40 @@ public class TestWorld  extends World
         stone3.setLocation(879,366);
         woodvertical2.setLocation(954,363);
         stone3.setLocation(878,362);
-    }
-    public Wombat getWombat() {
-        if(wombats.element() != null) {
-            return wombats.element();
-        } else {
-            return null;
-        }
+        Leaf leaf = new Leaf();
+        addObject(leaf,958,292);
+        leaf.setLocation(952,290);
+        leaf.getX();
+        leaf.setLocation(1096,286);
+        leaf.setLocation(1098,288);
+        Leaf leaf2 = new Leaf();
+        addObject(leaf2,956,293);
+        leaf2.setLocation(950,290);
+        Wood wood4 = new Wood();
+        addObject(wood4,1031,147);
+        wood4.setLocation(1025,144);
+        Wood wood5 = new Wood();
+        addObject(wood5,1171,154);
+        wood5.setLocation(1168,147);
+        wood4.setLocation(1025,148);
+        wood5.setLocation(1168,148);
+        Stone stone7 = new Stone();
+        addObject(stone7,954,189);
+        Stone stone8 = new Stone();
+        addObject(stone8,1114,189);
+        wood4.setLocation(956,116);
+        stone8.setLocation(1097,193);
+        wood5.setLocation(1099,122);
+        Stone stone9 = new Stone();
+        addObject(stone9,1100,51);
+        Stone stone10 = new Stone();
+        addObject(stone10,960,52);
+        WoodVertical woodvertical5 = new WoodVertical();
+        addObject(woodvertical5,1042,57);
+        stone7.setLocation(954,193);
+        wood4.setLocation(956,126);
+        wood5.setLocation(1101,122);
+        woodvertical5.setLocation(1031,55);
+        woodvertical5.setLocation(1031,50);
     }
 }

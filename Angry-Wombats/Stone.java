@@ -8,19 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Stone extends Target
 {
-    /**
-     * Act - do whatever the Stone wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Stone() {
+        super();
+    }
+    
     public void act() 
     {
-        if(this.touch(Wombat.class)) {
-            if(hitCount >= life) {
-                getWorld().removeObject(this);
-            } else {
-                setImage("rock_broken.png");
-                hitCount++;
-            }
+        if(hitCount == life-1) {
+            setImage("rock_broken.png");
         }
+        super.act();
     }    
 }

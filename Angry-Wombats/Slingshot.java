@@ -185,4 +185,8 @@ public class Slingshot extends Actor
         getWorld().setPaintOrder(Wombat.class,Slingshot.class); // draw the wombat on top of the sling shot
         initialized = true;
     }
+    
+    public Wombat getCurrentWombat() {
+        return wombat;
+    }
 }

@@ -14,4 +14,6 @@ comment5.params=input
 comment5.target=void\ setElasticNum(double)
 comment6.params=
 comment6.target=void\ initialize()
-numComments=7
+comment7.params=
+comment7.target=Wombat\ getCurrentWombat()
+numComments=8

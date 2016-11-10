@@ -8,20 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Wood extends Target
 {
-    TestWorld t;
+    public Wood() {
+        super();
+    }
     /**
      * Act - do whatever the Wood wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if(currentWombat != null && this.touch(currentWombat)) {
-            if(hitCount >= life) {
-                getWorld().removeObject(this);
-            } else {
-                setImage("wood_broken.png");
-                hitCount++;
-            }
-        }
+       if(hitCount == life-1) {
+           setImage("wood_broken.png");
+       }
+       super.act();
     }    
 }
