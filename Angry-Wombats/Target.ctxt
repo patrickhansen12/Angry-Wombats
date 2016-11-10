@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Target
-comment0.text=\n\ This\ class\ contains\ two\ methods\ for\ pixel-perfect\ collision-detection\n\ \n\ @author\ (Busch2207\ (Moritz\ L.))\ \n\ @version\ (09.11.2013)\n
+comment0.text=\r\n\ This\ class\ contains\ two\ methods\ for\ pixel-perfect\ collision-detection\r\n\ \r\n\ @author\ (Busch2207\ (Moritz\ L.))\ \r\n\ @version\ (09.11.2013)\r\n
 comment1.params=life
 comment1.target=Target(int)
 comment2.params=

@@ -26,6 +26,7 @@ public class Target extends Actor
         }
     }
     public void gotHit() {
+        Greenfoot.playSound("crash.wav");
         hitCount++;
     }
     

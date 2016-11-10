@@ -14,5 +14,10 @@ public class Leaf extends Target
     public void act() 
     {
         super.act();
-    }    
+    }
+    @Override
+    public void gotHit() {
+        Greenfoot.playSound("leaf.wav");
+        hitCount++;
+    }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WombatWorld  extends World
+public class WombatWorld extends World
 {
     Slingshot s = new Slingshot();
     boolean wombatadded = false;
@@ -17,10 +17,11 @@ public class WombatWorld  extends World
     
     GreenfootSound backgroundMusic = new GreenfootSound("music.wav");
     private boolean musicplaying = false;
- 
+    private int wombatNumber = 15;
+    
     double wombatmass = 5;
     boolean paused = false;
-
+    
     // testing variables
     boolean test1 = false;
     boolean test2 = false;
@@ -46,12 +47,15 @@ public class WombatWorld  extends World
     }
 
     public void act() {
-      if(!musicplaying){
+    if(!musicplaying){
     
      backgroundMusic.playLoop();
      musicplaying = true;
      
     }
+     if(checkIfWin()) {
+            endGame(true);
+        }
         // added a pause feture, to keep things from getting too mixed up.
         if(!paused) {
             if (!shotloaded) {
@@ -59,22 +63,20 @@ public class WombatWorld  extends World
                     sendToSShot(wombats.element()); // the wombat at the front of the line.  Send it to the shot
                     shotloaded = true;
                 } else {
-                    endGame();
+                    endGame(false);
                 }
             }
         }
-
         // add some targets to shoot at
 
     }
 
     public void addWombats() {
-        for(int i=0;i<5;i++) {
+        for(int i=0;i<wombatNumber;i++) {
             Wombat p = new Wombat();
             wombats.add(p);
-            addObject(p,5*15-(i)*15,50-p.getImage().getHeight()/2);
+            addObject(p,75,50-p.getImage().getHeight()/2);
         }
-   
         wombats.element().sendToSShot();
         sendToSShot(wombats.element());
     }
@@ -83,9 +85,9 @@ public class WombatWorld  extends World
     // to the wombat.
     public void sendToSShot(Wombat p) {
         p.sendToSShot();
-  
+        wombatNumber--;
         if(wombats.isEmpty()) {
-            endGame();
+            endGame(false);
         } else {
             s.addWombat(p);
         }
@@ -98,7 +100,7 @@ public class WombatWorld  extends World
         // addObject(p,0,100-p.getImage().getHeight()/2); // add it to the world..
         // wombats.addLast(p); // add it to the end of the list
         // now move 'em right...
-        moveRight();
+        //moveRight();
         shotloaded = false; // and then tell the act() function to load another shot...
     }
 
@@ -129,8 +131,21 @@ public class WombatWorld  extends World
         }
     }
 
-    public void endGame() {
-        Greenfoot.stop();
+    public void endGame(boolean win) {
+        if(win) {
+            removeObjects(getObjects(null));
+            setBackground("winner.png");
+            backgroundMusic.stop();
+            Greenfoot.playSound("winner.wav");
+            Greenfoot.stop();
+        }
+        if(!win) {
+            removeObjects(getObjects(null));
+            setBackground("gameover.png");
+            backgroundMusic.stop();
+            Greenfoot.playSound("gameover.wav");
+            Greenfoot.stop();
+        }
     }
 
     public void Pause() {
@@ -147,6 +162,8 @@ public class WombatWorld  extends World
      */
     private void prepare()
     {
+        WombatCounter count = new WombatCounter();
+        addObject(count,240,30);
         Stone stone = new Stone();
         addObject(stone,1161,367);
         stone.setLocation(1169,361);
@@ -231,4 +248,23 @@ public class WombatWorld  extends World
         addObject(leaf3,1026,132);
         leaf3.setLocation(1027,129);
     }
+    
+    public int getWombatsLeft() {
+        return wombatNumber;
+    }
+    
+    public boolean checkIfWin() {
+        if(getObjects(Leaf.class).isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+
+
+
+
+
+
+
