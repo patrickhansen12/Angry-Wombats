@@ -23,7 +23,7 @@ public class Slingshot extends Actor
     Vect tempVect = new Vect(0,0); // a temp vect for comparison purposes..see shootwombat
     Vect anotherVect = new Vect(0,0);  // another vector.  This one is to make sure the straps don't get pulled too far.
     Vect anotherVectUnit = new Vect(0,0); // the unit vector of another vect
-    TestWorld t; // a pointer to the testworld
+    WombatWorld t; // a pointer to the WombatWorld
     double wombatmass = 0;
     
     // other variables
@@ -178,7 +178,7 @@ public class Slingshot extends Actor
     public void initialize() {
         s1 = new Strap();
         s2 = new Strap();
-        t = (TestWorld) getWorld();
+        t = (WombatWorld) getWorld();
         getWorld().addObject(s1,getX() +9,getY()-23); // the order in which these are added matters
         getWorld().addObject(s2,getX() -6,getY()-23); // when it comes to which gets drawn first
         setImage(sshot1);

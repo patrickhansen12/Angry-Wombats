@@ -16,8 +16,7 @@ public class Wombat  extends Actor
     boolean initialized = false;
     double x; double y; // the x and y variables
     static double mass; // the mass of the wombat
-    double grav = 0.6; // yes, the wombat needs to know the gravity to launch itself into the slingshot I tried making
-    // it different, but it got hard
+    double grav = 0.6; // yes, the wombat needs to know the gravity to launch itself into the slingshot
     double airfriction = 0.1; // the wombat needs to know the air friction too, since it controlls it's own flight
     double speed; double distance;
     boolean movingright = false;
@@ -27,7 +26,7 @@ public class Wombat  extends Actor
     boolean dothisonce = false;
     boolean removed = false; // set to true if it goes too high
     GreenfootImage clr = new GreenfootImage(1,1);// a clear image incase it goes to high
-    TestWorld t;// = new TestWorld();
+    WombatWorld t;// = new WombatWorld();
     private boolean touchedObstacle = false;
     private Target touchedShit;
     boolean dotscheduled = false;
@@ -38,7 +37,7 @@ public class Wombat  extends Actor
     
     public Wombat() {
   
-        mass = 5; // some number
+        mass = 5; 
     }
     
     /**
@@ -47,7 +46,7 @@ public class Wombat  extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        
         if (!initialized) {
             initialize();
         }
@@ -112,8 +111,7 @@ public class Wombat  extends Actor
                     setImage("wombat.png");
                 }
             }
-            // finally, test to see if it is off the screen.  It will never actually move off the screen, so see
-            // if it's witin one pixel.
+           
             if ((getX() >= getWorld().getWidth()-1) || (getX() <= 1) || (velocity.getX() == 0)) {
                 removeWombat(); // multiple steps... needs it's own method
             } else if (getY() >= getWorld().getHeight()-1) {
@@ -129,7 +127,7 @@ public class Wombat  extends Actor
     
     public void removeWombat() {
         getWorld().removeObject(this); // remove this object
-        //t = (TestWorld) getWorld();
+        //t = (WombatWorld) getWorld();
         //t.moveRight();
         t.addAnotherWombat(); // add another wombat, & reload ths slingshot!
         takenaway = true;
@@ -143,33 +141,26 @@ public class Wombat  extends Actor
     }
     
     public void sendToSShot(){
-        // ok these numbers work when gravity is 0.6, so set it to 0.6 then set it back
+        // ok these numbers work when gravity is 4, so set it to 4 then set it back
         Phyx.setGravity(4);
         velocity.setX(3.8);
         velocity.setY(-7.5);
-        // now set it back to whatever it was.  Don't do this until launched though. 
-        //Phyx.setGravity(grav); // don't do this now...wait until later!!! (in move(), if (launched).. etc..)
         senttosshot = true;
         shotcontrol = true;
     }
     
-    public int getVelocity() {
-        return (int) velocity.magnitude();
-    }
-    
+
     public int getAngle() {
-        // the problem with arctan is it only works from -90 to + 90 degrees.  Needs to be modified
-        // I HATE HOW Y IS POSITIVE GOING DOWN IT JUST MESSES ME UP SO MUCH
+       
         int vx,vy; // the velocity x, and the velocity y
         vx = vy = 0; // to get rid of compiler warnings
         if (velocity.getX() >= 0) { 
             // great!  arctangent works.  The angle is computed by considering the velocitites in the x and
             // y direction
             vx = (int) velocity.getX();
-            // USE THE NEGITIVE OF Y!!! GAHHHHH 
             return (int) (Math.atan(-velocity.getY()/velocity.getX())*180/Math.PI);
         } else { 
-            // well, I guess I can just do it case by case
+        
             if (velocity.getY() >= 0) {
                 // ok so we are in the 2nd quadrant.  so, pretend velocity is positive, get the angle,
                 // then subtract it from 180. USE THE NEGITIVE OF Y BECAUSE NEGITIVE IS POSITIVE
@@ -181,24 +172,10 @@ public class Wombat  extends Actor
                 return (int) -(180-(Math.atan(-velocity.getY()/velocity.getX())*180/Math.PI));
             }
         }
-        // gotta return soemthing!
-        //return (int) (Math.atan(velocity.getY()/velocity.getX())*180/Math.PI);
+       
     }
-    /*
-     * This will probabily be replaced later, but it knocks the wombat back
-     */
-    public void knockBack() {
-        velocity.setX(-velocity.getX()); // just reverse the direction
-    }
-    
-    public void setGravity(double gravity) {
-        grav = gravity;
-    }
-    
-    public void setAirFriction(double amt) {
-        airfriction = amt;
-    }
-    
+   
+  
     public void setXandY(double a, double b) {
         x = a;
         y = b;
@@ -210,21 +187,11 @@ public class Wombat  extends Actor
         movingright = true;
     }
     
-    public double mass() {
-        return mass;
-    }
-    
-    public void setMass(double input) {
-        mass = input;
-    }
-    
-    public void setWind(Vect wind) {
-        windVect = wind;
-    }
+   
     
     public void initialize() {
         x = getX(); y = getY(); // get the initial location, whatever that might be
-        t = (TestWorld) getWorld();
+        t = (WombatWorld) getWorld();
         initialized = true;
     }
     

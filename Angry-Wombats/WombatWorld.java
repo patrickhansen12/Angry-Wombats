@@ -3,12 +3,12 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 
 /**
- * Write a description of class TestWorld here.
+ * Write a description of class WombatWorld here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TestWorld  extends World
+public class WombatWorld  extends World
 {
     Slingshot s = new Slingshot();
     boolean wombatadded = false;
@@ -20,9 +20,7 @@ public class TestWorld  extends World
  
     double wombatmass = 5;
     boolean paused = false;
-    double grav = 0.6; // tell the wombats what gravity is
-    double airfriction = 0.1;
-    Vect windVect = new Vect(0,0);
+
     // testing variables
     boolean test1 = false;
     boolean test2 = false;
@@ -30,12 +28,12 @@ public class TestWorld  extends World
     Vect testVect;
 
     /**
-     * Constructor for objects of class TestWorld.
+     * Constructor for objects of class WombatWorld.
      * 
      */
-    public TestWorld()
+    public WombatWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 12000x400 cells with a cell size of 1x1 pixels.
 
         super(1200, 400, 1); 
 
@@ -76,8 +74,7 @@ public class TestWorld  extends World
             wombats.add(p);
             addObject(p,5*15-(i)*15,50-p.getImage().getHeight()/2);
         }
-        // wombat at index 4 is at the front of the line.  I wish I could use a queue here.. maybe I can
-        // move the first wombat to the 
+   
         wombats.element().sendToSShot();
         sendToSShot(wombats.element());
     }
@@ -85,12 +82,8 @@ public class TestWorld  extends World
     // puts the wombat at the head of the list into the slingshot.  Also gives the slingshot a reference 
     // to the wombat.
     public void sendToSShot(Wombat p) {
-        p.setGravity(grav);
-        p.setAirFriction(airfriction);
         p.sendToSShot();
-        p.setMass(wombatmass);
-        //windVect.scalarMultiply(-1); // for some reason it's all backward.  Just multiply by -1 though
-        p.setWind(windVect); 
+  
         if(wombats.isEmpty()) {
             endGame();
         } else {
@@ -123,7 +116,7 @@ public class TestWorld  extends World
             case 1: // this is the gravity one. Gravity is a static int in the PHYX class
             // actually ended up changing gravity through the wombat, because it's easier that way 
             // the variable grav gets sent to each wombat as they are loaded into the slingshot
-            /*Phyx.setGravity(input); test1 = true; testVect = Phyx.Gravity(); */grav = input;
+            /*Phyx.setGravity(input); test1 = true; testVect = Phyx.Gravity(); */
             break; 
             case 2: // this sets how hard the slingshot accelerates the wombat
             s.setElasticNum(input); test2 = true;
@@ -131,9 +124,7 @@ public class TestWorld  extends World
             case 3: // this sets the mass of the wombat.  
             wombatmass = input;
             break;
-            case 4: // this one sets the Air Friction.  Doesn't do anything yet...
-            airfriction = input; // now it does!
-            break;
+          
 
         }
     }
@@ -235,5 +226,9 @@ public class TestWorld  extends World
         wood5.setLocation(1101,122);
         woodvertical5.setLocation(1031,55);
         woodvertical5.setLocation(1031,50);
+        removeObject(leaf2);
+        Leaf leaf3 = new Leaf();
+        addObject(leaf3,1026,132);
+        leaf3.setLocation(1027,129);
     }
 }
